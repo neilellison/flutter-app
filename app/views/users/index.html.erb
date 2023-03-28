@@ -1,7 +1,11 @@
-<h1>All Users</h1>
-<% @users.each do |user| %>
-  <h2><%= user.name %></h2>
-  <img src= user.image>
-  <p>Name: <%= user.name %></p>
-  <p>Bio: <%= user.bio %></p>
-<% end %>
+<h1>All Flutter Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+  <strong><p><%= link_to user.name, user_path(user) %></p></strong>
+  <% user.tweets.each do |tweet| %>
+  <%= tweet.created_at.strftime("%d %b %Y at %I:%M %p") %>
+  <p><%= tweet.text %></p>
+  <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,9 @@
+<h1>Profile Page for <%= @user.name %></h1>
+
+<h2><%= link_to "Home", tweets_path(@tweets) %></h2>
+
+<strong><p>Hi, <%= @user.name %></p></strong>
+
+<% @user.tweets.reverse.each do |tweet| %>
+<p><%= link_to tweet.text, tweet_path(tweet) %></p>
+<% end %>

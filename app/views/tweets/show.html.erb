@@ -1,0 +1,11 @@
+<h1>Profile Page for Tweet ID: <%= @tweet.id %></h1>
+
+<p><%= @tweet.text %></p>
+
+
+Tweet by: <%= @tweet.users.name %>
+<br>
+Likes: <%= @tweet.likes.count %>
+<br>
+Tweet created: <%= @tweet.created_at.strftime("%d %b %Y at %I:%M %p") %>
+<br>

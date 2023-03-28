@@ -10,6 +10,14 @@
 #   {user_id: 3, text: "Just coded for 5 hours #tired"}
 # ])
 
-Like.create([
-  {tweet_id: 1}
+# Like.create([
+#   {tweet_id: 1, user_id: 2},
+#   {tweet_id: 2, user_id: 3},
+#   {tweet_id: 3, user_id: 1}
+# ])
+
+Relationship.create([
+{follower_id: 1, leader_id: 2},
+{follower_id: 2, leader_id: 3},
+{follower_id: 3, leader_id: 1}
 ])

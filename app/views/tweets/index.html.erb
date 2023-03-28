@@ -1,0 +1,23 @@
+<h1>Flutter</h1>
+
+<h3>Current User: <%= @tweets.first.user.name %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "New Tweet", new_tweet_path(@tweets) %></h3>
+
+<ul>
+  <% @tweets.reverse.each do |tweet| %>
+  <br>
+  <%= image_tag("https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640", :alt => "Profile Pic") %>
+  <strong><%= link_to tweet.user.name, user_path(tweet.user_id) %></strong>
+  &middot;
+  <%= tweet.created_at.strftime("%d %b %Y at %I:%M %p") %>
+  <p><%= tweet.text %></p>
+  <button class="clicker js-explode">Like</button>&nbsp;&nbsp;<span id="counter"></span>
+  <% tweet.likes.count === 0 ? '' : tweet.likes.count %>
+  <br>
+  -------------------------------------------------------
+  <br><br>
+    <% end %>
+</ul>
