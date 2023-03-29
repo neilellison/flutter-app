@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :likes
-  resources :relationships
+  root "tweets#index"
+  resources :users, only: [:index, :show]
   resources :tweets, only: [:new, :create, :show, :index]
-  resources :sessions
+  get "/signup" => "users#new"
+  post "/users" => "users#create"
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/sessions', to: 'sessions#create', as: 'sessions'
+  get "/logout" => "sessions#destroy"
 end

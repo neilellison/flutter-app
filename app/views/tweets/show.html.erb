@@ -1,9 +1,9 @@
-<h1>Profile Page for Tweet ID: <%= @tweet.id %></h1>
+<h1>Profile Page for <%= @tweet.user.name %></h1>
 
 <p><%= @tweet.text %></p>
 
 
-Tweet by: <%= @tweet.users.name %>
+Tweet by: <%= @tweet.user.name %>
 <br>
 Likes: <%= @tweet.likes.count %>
 <br>

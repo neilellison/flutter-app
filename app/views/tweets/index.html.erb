@@ -1,15 +1,32 @@
-<h1>Flutter</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h1 {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 4em;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flutter</h1>
+  </body>
+</html>
 
-<h3>Current User: <%= @tweets.first.user.name %>
+<h3>Current User: @ryan_johnson 
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to "New Tweet", new_tweet_path(@tweets) %></h3>
+  <%= link_to "New Tweet", new_tweet_path(@tweets) %>
+  <%= link_to "Log In", login_path(@tweets) %>
+  <%= link_to "Sign Up", signup_path(@tweets) %>
+  <%= link_to "Log Out", logout_path(@tweets)%></h3>
 
 <ul>
   <% @tweets.reverse.each do |tweet| %>
   <br>
-  <%= image_tag("https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640", :alt => "Profile Pic") %>
+  <%= image_tag("https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640", style: "width 150px; height: 80px;", :alt => "Profile Pic") %>
   <strong><%= link_to tweet.user.name, user_path(tweet.user_id) %></strong>
   &middot;
   <%= tweet.created_at.strftime("%d %b %Y at %I:%M %p") %>

@@ -1,21 +1,20 @@
 class SessionsController < ApplicationController
   def new
-    @session = Session.new
-    render :show
+    render template: "sessions/new"
   end
+ 
   def create
-    user = User.find_by(name: params[:name])
-    if user.present?
-        session[:user_id] = user.id
-        redirect_to users_path
-      else
-        render 'new'
-      end
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to "/"
+    else
+      redirect_to "/login"
+    end
   end
-
+ 
   def destroy
-    session.delete :username
-    redirect_to '/sessions/new'
-  end  
-
+    session[:user_id] = nil
+    redirect_to "/login"
+  end
 end

@@ -1,10 +1,16 @@
-<h1>Login Page</h1>
+<h1>Login</h1>
+<%= form_with method: "post", url: "/sessions" do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end%>
 
-<%= form_tag :sessions do %>
-<%= label_tag :name %>
-<%= text_field_tag :name %>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<%= submit_tag “Log In” %>
-<% end %>
 
